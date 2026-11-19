@@ -1,7 +1,7 @@
 # sensfamily — sensitivity analysis in jamovi
 
 A jamovi module for asking how much an unobserved confounder would matter for a regression estimate. It has two post-estimation tools for a linear
-regression of an outcome on a treatment and controls. Chinese summary: [README.zh.md](README.zh.md).
+regression of an outcome on a treatment and controls. Chinese summary: [README.zh.md](README.zh.md). Japanese summary: [README.ja.md](README.ja.md).
 
 ## Analyses (jamovi menu: Sensitivity > Regression)
 
