@@ -1,0 +1,84 @@
+---
+name: oster
+title: Coefficient Stability (Oster)
+jas: '1.2'
+version: '1.0.0'
+menuGroup: Sensitivity
+menuSubgroup: Regression
+menuTitle: Coefficient Stability
+menuSubtitle: Selection on unobservables (Oster)
+
+options:
+    - name: data
+      type: Data
+
+    - name: outcome
+      title: Outcome
+      type: Variable
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: treat
+      title: Treatment
+      type: Variable
+      suggested:
+          - continuous
+          - nominal
+      permitted:
+          - numeric
+          - factor
+
+    - name: covs
+      title: Controls
+      type: Variables
+      suggested:
+          - continuous
+          - nominal
+      permitted:
+          - numeric
+          - factor
+
+    - name: rmaxType
+      title: Maximum R2 (Rmax) is
+      type: List
+      options:
+          - name: multiple
+            title: 'A multiple of the R2 of the controlled regression'
+          - name: value
+            title: 'A fixed value'
+      default: multiple
+
+    - name: rmax
+      title: Rmax (multiple or value)
+      type: Number
+      default: 1.3
+      min: 0.01
+
+    - name: delta
+      title: Delta (relative importance of unobservables)
+      type: Number
+      default: 1
+
+    - name: beta0
+      title: Target value of the treatment coefficient
+      type: Number
+      default: 0
+
+    - name: plot
+      title: Plot delta against Rmax
+      type: Bool
+      default: true
+
+    - name: showHelp
+      title: Method notes
+      type: Bool
+      default: false
+
+    - name: showGuide
+      title: Data and setup guide
+      type: Bool
+      default: false
+
+...

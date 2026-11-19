@@ -1,0 +1,102 @@
+---
+name: oster
+title: Coefficient Stability (Oster)
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: est
+      title: 'Treatment coefficient without and with controls'
+      type: Table
+      rows: 2
+      clearWith:
+          - outcome
+          - treat
+          - covs
+      columns:
+          - name: model
+            title: 'Regression'
+            type: text
+          - name: coef
+            title: 'Coefficient'
+            type: number
+          - name: r2
+            title: 'R2'
+            type: number
+
+    - name: res
+      title: 'Selection on unobservables'
+      type: Table
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - rmaxType
+          - rmax
+          - delta
+          - beta0
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: value
+            title: ''
+            type: number
+
+    - name: grid
+      title: 'Sensitivity to the choice of Rmax'
+      type: Table
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - delta
+          - beta0
+      columns:
+          - name: rmax
+            title: 'Rmax'
+            type: number
+          - name: label
+            title: 'Rmax as'
+            type: text
+          - name: dstar
+            title: 'Delta that gives the target'
+            type: number
+          - name: bstar
+            title: 'Coefficient at the chosen delta'
+            type: number
+
+    - name: dPlot
+      title: 'Delta that explains the effect away, by Rmax'
+      type: Image
+      width: 520
+      height: 360
+      renderFun: .plotDelta
+      visible: (plot)
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - rmaxType
+          - rmax
+          - beta0
+
+refs:
+    - oster2019
+    - altonji2005
+
+...

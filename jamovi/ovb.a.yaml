@@ -1,0 +1,119 @@
+---
+name: ovb
+title: Omitted Variable Bias (Robustness Value)
+jas: '1.2'
+version: '1.0.0'
+menuGroup: Sensitivity
+menuSubgroup: Regression
+menuTitle: Omitted Variable Bias
+menuSubtitle: Robustness value and bounds (Cinelli and Hazlett)
+
+options:
+    - name: data
+      type: Data
+
+    - name: outcome
+      title: Outcome
+      type: Variable
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: treat
+      title: Treatment
+      type: Variable
+      suggested:
+          - continuous
+          - nominal
+      permitted:
+          - numeric
+          - factor
+
+    - name: covs
+      title: Covariates
+      type: Variables
+      suggested:
+          - continuous
+          - nominal
+      permitted:
+          - numeric
+          - factor
+
+    - name: bench
+      title: Benchmark covariates
+      type: Variables
+      suggested:
+          - continuous
+          - nominal
+      permitted:
+          - numeric
+          - factor
+
+    - name: q
+      title: Reduce the estimate by (%)
+      type: Number
+      default: 100
+      min: 1
+      max: 200
+
+    - name: direction
+      title: Confounder pushes the estimate
+      type: List
+      options:
+          - name: reduce
+            title: 'Towards zero (reduces the absolute estimate)'
+          - name: increase
+            title: 'Away from zero (increases the absolute estimate)'
+      default: reduce
+
+    - name: kd
+      title: Multiples of the benchmark strength
+      type: String
+      default: '1, 2, 3'
+
+    - name: h0
+      title: Null value of the treatment effect
+      type: Number
+      default: 0
+
+    - name: level
+      title: Confidence level (%)
+      type: Number
+      default: 95
+      min: 50
+      max: 99.9
+
+    - name: plot
+      title: Contour plot
+      type: Bool
+      default: true
+
+    - name: plotStat
+      title: Contours show
+      type: List
+      options:
+          - name: estimate
+            title: 'Adjusted estimate'
+          - name: t
+            title: 'Adjusted t statistic'
+      default: estimate
+
+    - name: plotLim
+      title: Largest partial R2 on the axes
+      type: Number
+      default: 0.4
+      min: 0.05
+      max: 1
+
+    - name: showHelp
+      title: Method notes
+      type: Bool
+      default: false
+
+    - name: showGuide
+      title: Data and setup guide
+      type: Bool
+      default: false
+
+...

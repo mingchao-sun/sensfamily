@@ -1,0 +1,144 @@
+---
+name: ovb
+title: Omitted Variable Bias (Robustness Value)
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: coef
+      title: 'Treatment effect in the regression'
+      type: Table
+      rows: 1
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - bench
+          - level
+          - h0
+      columns:
+          - name: estimate
+            title: 'Estimate'
+            type: number
+          - name: se
+            title: 'Std. error'
+            type: number
+          - name: t
+            title: 't'
+            type: number
+          - name: p
+            title: p
+            type: number
+            format: zto,pvalue
+          - name: df
+            title: 'df'
+            type: integer
+          - name: r2
+            title: 'Partial R2 with outcome'
+            type: number
+          - name: f2
+            title: 'Partial f2'
+            type: number
+
+    - name: rv
+      title: 'Robustness values'
+      type: Table
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - bench
+          - level
+          - q
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: rv
+            title: 'Robustness value'
+            type: number
+          - name: pct
+            title: 'In percent'
+            type: text
+
+    - name: bounds
+      title: 'Estimate if a confounder were as strong as the benchmark'
+      type: Table
+      visible: false
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - bench
+          - level
+          - q
+          - direction
+          - kd
+          - h0
+      columns:
+          - name: bench
+            title: 'Benchmark'
+            type: text
+          - name: k
+            title: 'Times as strong'
+            type: number
+          - name: r2d
+            title: 'Partial R2 with treatment'
+            type: number
+          - name: r2y
+            title: 'Partial R2 with outcome'
+            type: number
+          - name: est
+            title: 'Adjusted estimate'
+            type: number
+          - name: se
+            title: 'Adjusted s.e.'
+            type: number
+          - name: t
+            title: 'Adjusted t'
+            type: number
+          - name: lo
+            title: 'CI lower'
+            type: number
+          - name: hi
+            title: 'CI upper'
+            type: number
+
+    - name: contour
+      title: 'Sensitivity contour plot'
+      type: Image
+      width: 560
+      height: 480
+      renderFun: .plotContour
+      visible: (plot)
+      clearWith:
+          - outcome
+          - treat
+          - covs
+          - bench
+          - q
+          - direction
+          - kd
+          - h0
+          - plotStat
+          - plotLim
+
+refs:
+    - cinelli2020
+    - sensemakr
+
+...

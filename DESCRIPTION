@@ -1,0 +1,17 @@
+Package: sensfamily
+Type: Package
+Title: Sensitivity Analysis Family for jamovi
+Version: 1.0.0
+Author: Mingchao Sun
+Maintainer: Mingchao Sun <mingchao.sun@hotmail.com>
+URL: https://github.com/mingchao-sun/sensfamily
+BugReports: https://github.com/mingchao-sun/sensfamily/issues
+Description: Sensitivity analysis for linear regression estimates in jamovi: the
+    robustness value and benchmark bounds for omitted variable bias (Cinelli and
+    Hazlett, 2020) and the coefficient stability bounds of Oster (2019).
+License: GPL-3
+Encoding: UTF-8
+Imports:
+    jmvcore (>= 2.3.4),
+    R6,
+    ggplot2

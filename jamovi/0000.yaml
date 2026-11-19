@@ -1,0 +1,44 @@
+---
+title: Sensitivity Analysis Family
+name: sensfamily
+version: 1.0.0
+jms: '1.0'
+authors:
+  - Mingchao Sun
+maintainer: Mingchao Sun <mingchao.sun@hotmail.com>
+date: '2026-11-20'
+type: R
+description: >-
+  Sensitivity of regression estimates to omitted variables: the robustness value
+  and benchmark bounds of Cinelli and Hazlett, and the coefficient stability
+  bounds of Oster. For use after an ordinary regression, an IV or a matching
+  analysis.
+datasets:
+  - name: 'Darfur: violence and attitudes towards peace'
+    path: darfur.csv
+    description: >-
+      1,276 Darfurian refugees in Chad (Hazlett, 2019; sensemakr package).
+      Outcome peacefactor, treatment directlyharmed, covariates age, farmer_dar,
+      herder_dar, pastvoted, hhsize_darfur, female and village (Nominal, 690
+      levels). The village effects are optional; set them to Nominal in jamovi.
+analyses:
+  - name: ovb
+    title: Omitted Variable Bias (Robustness Value)
+    menuGroup: Sensitivity
+    menuSubgroup: Regression
+    menuTitle: Omitted Variable Bias
+    menuSubtitle: Robustness value and bounds (Cinelli and Hazlett)
+    ns: sensfamily
+    category: analyses
+  - name: oster
+    title: Coefficient Stability (Oster)
+    menuGroup: Sensitivity
+    menuSubgroup: Regression
+    menuTitle: Coefficient Stability
+    menuSubtitle: Selection on unobservables (Oster)
+    ns: sensfamily
+    category: analyses
+usesNative: true
+minApp: 1.0.8
+
+...
